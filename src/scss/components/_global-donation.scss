@@ -1,0 +1,559 @@
+//Default Full width 1/2, 2/3 3/4
+.global-donation--widget {
+    @include min($xs, $sm) {
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+
+    .wobbly-overlay {
+        background-color: $light-grey;
+
+        @include max($xs) {
+            margin-left: -0.75rem;
+            margin-right: -0.75rem;
+
+            &:after {
+                background-image: none;
+            }
+        }
+
+        @include min($xs, $sm - 1) {
+            background-color: transparent;
+            margin-top: -30px;
+
+            &:after {
+                z-index: 0;
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMzUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGZpbGw9IiNFQkYwRjMiIGQ9Ik0xNDguMSAwLjdDMTI5LjIgMCAxMTIuMiAwLjggOTQgMS4xYy0yMi41IDAuMy00NC4yLTEuNS02Ny43LTEgMC4xLTAuMi0xMy44IDAtMjAuMyAxLjFDMS40IDEuOSAwLjggNSAwLjcgNi43Yy0wLjcgNy44LTEuNCAxNy4yIDEgMjUgMS43IDMuMyAxMCAzLjEgMTQuMyAzLjIgMTIuMSAwLjMgMjQuMS0wLjMgMzYuMi0wLjMgMzAuNSAwIDU5IDAuMiA4OC41IDAuMiA1LjMgMCAxMy4zLTAuMSAxNi45LTEuNCAzLjYtMS4zIDIuMy0xNyAxLjctMjJDMTU5IDggMTU5LjMgMS4yIDE0OC4xIDAuN3oiLz48L3N2Zz4=);
+            }
+
+            .wobbly-overlay__media {
+                z-index: 1;
+            }
+        }
+
+        @include min($sm) {
+            margin-top: 0;
+        }
+
+        &:after {
+            pointer-events: none;
+        }
+    }
+
+    .global-donation--widget--content {
+        // 30px 20px
+        padding: 1.875rem 1.25rem;
+
+        @include min($xs) {
+            // 40px 70px 40px 82px
+            padding: 2.5rem;
+        }
+
+        @include min($sm) {
+            // 40px 70px 40px 82px
+            padding: 2.5rem 2.5rem 2.5rem 3.25rem;
+            -webkit-order: 1;
+            order: 1;
+        }
+        /*@include min($md) {
+            // 40px 70px 40px 82px
+            // padding: 2.5rem 4.375rem 2.5rem 5.125rem;
+        }*/
+        @include min($lg) {
+            // 40px 70px 40px 82px
+            // padding: 2.5rem 4.375rem 2.5rem 5.125rem;
+        }
+        /*@include max($sm) {
+            width: 100%;
+        }*/
+        .global-donation--widget--tabs {
+            display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+            display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+            display: -ms-flexbox; /* TWEENER - IE 10 */
+            display: -webkit-flex; /* NEW - Chrome */
+            display: flex;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+            margin-bottom: 0.5em;
+
+            .btn-wobbly--keyline {
+                width: 48%;
+
+                @include min($sm) {
+                    width: 48%;
+                }
+
+                @include min($md) {
+                    width: 48%;
+                }
+
+                @include min($lg) {
+                    width: 48%;
+                }
+            }
+        }
+
+        .global-donation--widget--donations {
+            display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+            display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+            display: -ms-flexbox; /* TWEENER - IE 10 */
+            display: -webkit-flex; /* NEW - Chrome */
+            display: flex;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+            margin-bottom: 0.5em;
+
+            .donation-tab {
+                display: none;
+
+                &.active {
+                    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+                    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+                    display: -ms-flexbox; /* TWEENER - IE 10 */
+                    display: -webkit-flex; /* NEW - Chrome */
+                    display: flex;
+                    -webkit-justify-content: space-between;
+                    justify-content: space-between;
+                    width: 53%;
+                    max-width: 180px;
+                    padding-right: 0.5em;
+
+                    @include min($sm) {
+                        width: 170px;
+                    }
+
+                    @include min($md) {
+                        width: 175px;
+                    }
+
+                    @include min($lg) {
+                        width: 205px;
+                    }
+                }
+            }
+
+            .global-donation--widget--donations--input {
+                color: $gray-dark;
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMzUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGZpbGw9IiNEOEUxRTciIGQ9Ik0xNDguMSAwLjdDMTI5LjIgMCAxMTIuMiAwLjggOTQgMS4xYy0yMi41IDAuMy00NC4yLTEuNS02Ny43LTEgMC4xLTAuMi0xMy44IDAtMjAuMyAxLjFDMS40IDEuOSAwLjggNSAwLjcgNi43Yy0wLjcgNy44LTEuNCAxNy4yIDEgMjUgMS43IDMuMyAxMCAzLjEgMTQuMyAzLjIgMTIuMSAwLjMgMjQuMS0wLjMgMzYuMi0wLjMgMzAuNSAwIDU5IDAuMiA4OC41IDAuMiA1LjMgMCAxMy4zLTAuMSAxNi45LTEuNCAzLjYtMS4zIDIuMy0xNyAxLjctMjJDMTU5IDggMTU5LjMgMS4yIDE0OC4xIDAuN3oiLz48L3N2Zz4=);
+                height: 50px;
+                padding: 3px 2px;
+                display: inline-block;
+                cursor: pointer;
+                width: 50%;
+                white-space: nowrap;
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+
+                @include min($xs) {
+                    width: calc(100% - 175px);
+                }
+
+                @include min($sm) {
+                    width: calc(100% - 175px);
+                }
+
+                @include min($md) {
+                    width: calc(100% - 175px);
+                }
+
+                @include min($lg) {
+                    width: calc(100% - 175px);
+                }
+
+
+                .global-donation--widget--donations--input__inner {
+                    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20160%2035%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M148.1%200.7C129.2%200%20112.2%200.8%2094%201.1c-22.5%200.3-44.2-1.5-67.7-1%200.1-0.2-13.8%200-20.3%201.1C1.4%201.9%200.8%205%200.7%206.7c-0.7%207.8-1.4%2017.2%201%2025%201.7%203.3%2010%203.1%2014.3%203.2%2012.1%200.3%2024.1-0.3%2036.2-0.3%2030.5%200%2059%200.2%2088.5%200.2%205.3%200%2013.3-0.1%2016.9-1.4%203.6-1.3%202.3-17%201.7-22C159%208%20159.3%201.2%20148.1%200.7z%22%2F%3E%3C%2Fsvg%3E");
+                    padding: 0;
+                    height: 44px;
+                    position: relative;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    color: $gray-dark;
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+
+                    button.global-donation--widget--donations--input--mask {
+                        display: block;
+                        background: none;
+                        border: 0;
+                        color: inherit;
+                        /* cursor: default; */
+                        font: inherit;
+                        line-height: normal;
+                        overflow: visible;
+                        padding: 0;
+                        padding-left: 10px;
+                        width: 100%;
+                        height: 100%;
+                        text-align: left;
+                    }
+
+                    input {
+                        border: 0;
+                        @include box-shadow(none);
+                        text-indent: -9999999px;
+                        margin: 0;
+                        vertical-align: middle;
+                        white-space: normal;
+                        background: none;
+                        line-height: 1;
+                        background-color: $white;
+                        position: absolute;
+                        top: 7.5px;
+                        left: 22px;
+                        padding: 5px 0;
+                        width: calc(100% - 25px);
+                        height: 29px;
+                        /*line-height: 29px;*/ // this property causes a display issue with ie.
+                        font-size: 1rem;
+                        color: #000;
+                        font-weight: bold;
+                        visibility: hidden;
+
+                        &:focus {
+                            @include box-shadow(none);
+                            outline: 0 !important;
+                            outline-offset: -2px;
+                            text-indent: 0;
+                        }
+
+                        &.active {
+                            display: block;
+                            text-indent: 0;
+                            visibility: visible;
+                        }
+                    }
+                }
+
+                &:hover, &:focus, &.active {
+                    outline: 0 !important;
+                    outline-offset: -2px;
+                    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMzUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGZpbGw9IiNGRkRGQjQiIGQ9Ik0xNDguMSAwLjdDMTI5LjIgMCAxMTIuMiAwLjggOTQgMS4xYy0yMi41IDAuMy00NC4yLTEuNS02Ny43LTEgMC4xLTAuMi0xMy44IDAtMjAuMyAxLjFDMS40IDEuOSAwLjggNSAwLjcgNi43Yy0wLjcgNy44LTEuNCAxNy4yIDEgMjUgMS43IDMuMyAxMCAzLjEgMTQuMyAzLjIgMTIuMSAwLjMgMjQuMS0wLjMgMzYuMi0wLjMgMzAuNSAwIDU5IDAuMiA4OC41IDAuMiA1LjMgMCAxMy4zLTAuMSAxNi45LTEuNCAzLjYtMS4zIDIuMy0xNyAxLjctMjJDMTU5IDggMTU5LjMgMS4yIDE0OC4xIDAuN3oiLz48L3N2Zz4=);
+
+                    .global-donation--widget--donations--input__inner {
+                        color: $black;
+                        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMzUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGZpbGw9IiNGRjlFMUMiIGQ9Ik0xNDguMSAwLjdDMTI5LjIgMCAxMTIuMiAwLjggOTQgMS4xYy0yMi41IDAuMy00NC4yLTEuNS02Ny43LTEgMC4xLTAuMi0xMy44IDAtMjAuMyAxLjFDMS40IDEuOSAwLjggNSAwLjcgNi43Yy0wLjcgNy44LTEuNCAxNy4yIDEgMjUgMS43IDMuMyAxMCAzLjEgMTQuMyAzLjIgMTIuMSAwLjMgMjQuMS0wLjMgMzYuMi0wLjMgMzAuNSAwIDU5IDAuMiA4OC41IDAuMiA1LjMgMCAxMy4zLTAuMSAxNi45LTEuNCAzLjYtMS4zIDIuMy0xNyAxLjctMjJDMTU5IDggMTU5LjMgMS4yIDE0OC4xIDAuN3oiLz48L3N2Zz4=);
+                    }
+
+                    input {
+                        background-color: $orange;
+                    }
+                }
+
+                &.active {
+                    input {
+                        display: block;
+                        text-indent: 0;
+                    }
+                }
+            }
+        }
+
+        .field-validation-error {
+            .has-error {
+                display: block;
+                margin-bottom: $margin-base;
+            }
+        }
+
+        .global-donation--widget--msg {
+            padding: 1.5rem;
+            margin-bottom: 0;
+
+            &:not(:only-child) {
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+
+    .global-donation--widget--images__desktop, .global-donation--widget--images__mobile {
+
+        .global-donation--widget--images--content {
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+            background-position: top left;
+        }
+    }
+
+    .global-donation--widget--images__desktop {
+        display: none;
+
+        @include min($sm) {
+            padding: 0;
+            display: block;
+            -webkit-order: 2;
+            order: 2;
+        }
+    }
+
+    .global-donation--widget--images__mobile {
+        height: 230px;
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
+
+        @include min($sm) {
+            display: none;
+        }
+    }
+
+    .global-donation--widget--submit {
+        align-items: center;
+        @include flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+
+        .submit-applepay {
+            display: none;
+        }
+
+        .btn, .apple-pay-set-up-button {
+            margin-left: $margin-small;
+            margin-right: $margin-small;
+        }
+    }
+}
+
+/* hide gift aid section if not apple pay */
+
+.apple-pay-donation__giftaid--container-global-donation {
+    display: none;
+}
+
+.global-donation--widget.show-apple-pay {
+    
+    /* show gift aid section if not apple pay */
+
+    .apple-pay-donation__giftaid--container-global-donation {
+        display: block;
+
+        .apple-pay-donation__giftaid__text .checkbox-inline,
+        .apple-pay-donation__giftaid-additional {
+            padding-left: 1.5rem;
+
+            .giftAidDynamicMsg {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    // show apple pay button
+    .apple-pay-button {
+        display: inline-block;
+    }
+
+    .global-donation--widget--submit {
+        .btn-wobbly--primary {
+            background: none;
+            color: $meganav-primary-link;
+            font-weight: normal;
+
+            &:hover {
+                color: $meganav-primary-link-hover;
+                text-decoration: underline;
+                background: none;
+            }
+        }
+
+        .submit-applepay {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .submit-normal {
+            display: none;
+        }
+    }
+}
+
+// hide apple pay button if .show-apple-pay is not added to the global donation widget container (e.g. if monthly / regular donation and not apple pay)
+
+.global-donation--widget:not(.show-apple-pay) {
+    .apple-pay-donate-button,
+    .apple-pay-set-up-button {
+        display: none;
+    }
+}
+
+/*.has-error-stop {
+    .field-validation-error{
+        display: none;
+    }
+}*/
+
+.global-donation--widget--donations {
+    margin: 0 0 1rem !important;
+
+    &.form-group.has-error:not(.has-error-stop) {
+        //.btn-wobbly--donation - removed so that only the 'other amount' input field is highlighted and not the single donation buttons
+        .global-donation--widget--donations--input {
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMzUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGZpbGw9IiNGODY4MzgiIGQ9Ik0xNDguMSAwLjdDMTI5LjIgMCAxMTIuMiAwLjggOTQgMS4xYy0yMi41IDAuMy00NC4yLTEuNS02Ny43LTEgMC4xLTAuMi0xMy44IDAtMjAuMyAxLjFDMS40IDEuOSAwLjggNSAwLjcgNi43Yy0wLjcgNy44LTEuNCAxNy4yIDEgMjUgMS43IDMuMyAxMCAzLjEgMTQuMyAzLjIgMTIuMSAwLjMgMjQuMS0wLjMgMzYuMi0wLjMgMzAuNSAwIDU5IDAuMiA4OC41IDAuMiA1LjMgMCAxMy4zLTAuMSAxNi45LTEuNCAzLjYtMS4zIDIuMy0xNyAxLjctMjJDMTU5IDggMTU5LjMgMS4yIDE0OC4xIDAuN3oiLz48L3N2Zz4=);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+
+
+            .btn-wobbly__inner {
+                background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20160%2035%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M148.1%200.7C129.2%200%20112.2%200.8%2094%201.1c-22.5%200.3-44.2-1.5-67.7-1%200.1-0.2-13.8%200-20.3%201.1C1.4%201.9%200.8%205%200.7%206.7c-0.7%207.8-1.4%2017.2%201%2025%201.7%203.3%2010%203.1%2014.3%203.2%2012.1%200.3%2024.1-0.3%2036.2-0.3%2030.5%200%2059%200.2%2088.5%200.2%205.3%200%2013.3-0.1%2016.9-1.4%203.6-1.3%202.3-17%201.7-22C159%208%20159.3%201.2%20148.1%200.7z%22%2F%3E%3C%2Fsvg%3E");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .global-donation--widget--donations--input, .global-donation--widget--donations--input.active {
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMzUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGZpbGw9IiNGODY4MzgiIGQ9Ik0xNDguMSAwLjdDMTI5LjIgMCAxMTIuMiAwLjggOTQgMS4xYy0yMi41IDAuMy00NC4yLTEuNS02Ny43LTEgMC4xLTAuMi0xMy44IDAtMjAuMyAxLjFDMS40IDEuOSAwLjggNSAwLjcgNi43Yy0wLjcgNy44LTEuNCAxNy4yIDEgMjUgMS43IDMuMyAxMCAzLjEgMTQuMyAzLjIgMTIuMSAwLjMgMjQuMS0wLjMgMzYuMi0wLjMgMzAuNSAwIDU5IDAuMiA4OC41IDAuMiA1LjMgMCAxMy4zLTAuMSAxNi45LTEuNCAzLjYtMS4zIDIuMy0xNyAxLjctMjJDMTU5IDggMTU5LjMgMS4yIDE0OC4xIDAuN3oiLz48L3N2Zz4=);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+
+            .global-donation--widget--donations--input__inner {
+                background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20160%2035%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M148.1%200.7C129.2%200%20112.2%200.8%2094%201.1c-22.5%200.3-44.2-1.5-67.7-1%200.1-0.2-13.8%200-20.3%201.1C1.4%201.9%200.8%205%200.7%206.7c-0.7%207.8-1.4%2017.2%201%2025%201.7%203.3%2010%203.1%2014.3%203.2%2012.1%200.3%2024.1-0.3%2036.2-0.3%2030.5%200%2059%200.2%2088.5%200.2%205.3%200%2013.3-0.1%2016.9-1.4%203.6-1.3%202.3-17%201.7-22C159%208%20159.3%201.2%20148.1%200.7z%22%2F%3E%3C%2Fsvg%3E");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+
+            input {
+                background-color: $white;
+                @include box-shadow(none);
+            }
+        }
+    }
+}
+
+.btn-wobbly--donation {
+    color: $gray-dark;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMzUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGZpbGw9IiNEOEUxRTciIGQ9Ik0xNDguMSAwLjdDMTI5LjIgMCAxMTIuMiAwLjggOTQgMS4xYy0yMi41IDAuMy00NC4yLTEuNS02Ny43LTEgMC4xLTAuMi0xMy44IDAtMjAuMyAxLjFDMS40IDEuOSAwLjggNSAwLjcgNi43Yy0wLjcgNy44LTEuNCAxNy4yIDEgMjUgMS43IDMuMyAxMCAzLjEgMTQuMyAzLjIgMTIuMSAwLjMgMjQuMS0wLjMgMzYuMi0wLjMgMzAuNSAwIDU5IDAuMiA4OC41IDAuMiA1LjMgMCAxMy4zLTAuMSAxNi45LTEuNCAzLjYtMS4zIDIuMy0xNyAxLjctMjJDMTU5IDggMTU5LjMgMS4yIDE0OC4xIDAuN3oiLz48L3N2Zz4=);
+    height: 50px;
+
+    .btn-wobbly__inner {
+        color: $gray-dark;
+        padding: 10px;
+    }
+
+    &.square {
+        width: 50px;
+        height: 50px;
+
+        .btn-wobbly__inner {
+            padding: 10px 5px;
+        }
+    }
+
+    &:hover, &:focus, &:active, &.active {
+        color: $black;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMzUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGZpbGw9IiNGRkRGQjQiIGQ9Ik0xNDguMSAwLjdDMTI5LjIgMCAxMTIuMiAwLjggOTQgMS4xYy0yMi41IDAuMy00NC4yLTEuNS02Ny43LTEgMC4xLTAuMi0xMy44IDAtMjAuMyAxLjFDMS40IDEuOSAwLjggNSAwLjcgNi43Yy0wLjcgNy44LTEuNCAxNy4yIDEgMjUgMS43IDMuMyAxMCAzLjEgMTQuMyAzLjIgMTIuMSAwLjMgMjQuMS0wLjMgMzYuMi0wLjMgMzAuNSAwIDU5IDAuMiA4OC41IDAuMiA1LjMgMCAxMy4zLTAuMSAxNi45LTEuNCAzLjYtMS4zIDIuMy0xNyAxLjctMjJDMTU5IDggMTU5LjMgMS4yIDE0OC4xIDAuN3oiLz48L3N2Zz4=);
+        outline: 0 !important;
+        outline-offset: -2px;
+
+        .btn-wobbly__inner {
+            color: $black;
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMzUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGZpbGw9IiNGRjlFMUMiIGQ9Ik0xNDguMSAwLjdDMTI5LjIgMCAxMTIuMiAwLjggOTQgMS4xYy0yMi41IDAuMy00NC4yLTEuNS02Ny43LTEgMC4xLTAuMi0xMy44IDAtMjAuMyAxLjFDMS40IDEuOSAwLjggNSAwLjcgNi43Yy0wLjcgNy44LTEuNCAxNy4yIDEgMjUgMS43IDMuMyAxMCAzLjEgMTQuMyAzLjIgMTIuMSAwLjMgMjQuMS0wLjMgMzYuMi0wLjMgMzAuNSAwIDU5IDAuMiA4OC41IDAuMiA1LjMgMCAxMy4zLTAuMSAxNi45LTEuNCAzLjYtMS4zIDIuMy0xNyAxLjctMjJDMTU5IDggMTU5LjMgMS4yIDE0OC4xIDAuN3oiLz48L3N2Zz4=);
+        }
+    }
+}
+
+//one-third 1/2 1/3 1/4
+.block.col-lg-4.col-md-4.col-sm-4, .block.col-lg-3.col-md-3.col-sm-6, .block.col-lg-6.col-md-6.col-sm-12 {
+    .global-donation--widget {
+        .wobbly-overlay {
+            @include min($sm) {
+                background-color: transparent;
+                margin-top: -30px;
+
+                &:after {
+                    z-index: 0;
+                    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMzUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGZpbGw9IiNFQkYwRjMiIGQ9Ik0xNDguMSAwLjdDMTI5LjIgMCAxMTIuMiAwLjggOTQgMS4xYy0yMi41IDAuMy00NC4yLTEuNS02Ny43LTEgMC4xLTAuMi0xMy44IDAtMjAuMyAxLjFDMS40IDEuOSAwLjggNSAwLjcgNi43Yy0wLjcgNy44LTEuNCAxNy4yIDEgMjUgMS43IDMuMyAxMCAzLjEgMTQuMyAzLjIgMTIuMSAwLjMgMjQuMS0wLjMgMzYuMi0wLjMgMzAuNSAwIDU5IDAuMiA4OC41IDAuMiA1LjMgMCAxMy4zLTAuMSAxNi45LTEuNCAzLjYtMS4zIDIuMy0xNyAxLjctMjJDMTU5IDggMTU5LjMgMS4yIDE0OC4xIDAuN3oiLz48L3N2Zz4=);
+                }
+
+                .wobbly-overlay__media {
+                    z-index: 1;
+                }
+            }
+        }
+
+        .global-donation--widget--images__mobile {
+            @include min($sm) {
+                display: block;
+            }
+        }
+
+        .global-donation--widget--images__desktop {
+            @include min($sm) {
+                display: none;
+            }
+        }
+
+        .global-donation--widget--content {
+            @include min($sm) {
+                flex: 0 0 100%;
+                width: 100%;
+                min-width: 100%; //IE bug
+                max-width: 100%; //IE bug
+            }
+        }
+    }
+}
+
+//2/
+.block.col-lg-8.col-md-8.col-sm-8 {
+    .global-donation--widget {
+        .wobbly-overlay {
+            @include min($sm, $lg) {
+                background-color: transparent;
+                margin-top: -30px;
+
+                &:after {
+                    z-index: 0;
+                    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMzUiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxwYXRoIGZpbGw9IiNFQkYwRjMiIGQ9Ik0xNDguMSAwLjdDMTI5LjIgMCAxMTIuMiAwLjggOTQgMS4xYy0yMi41IDAuMy00NC4yLTEuNS02Ny43LTEgMC4xLTAuMi0xMy44IDAtMjAuMyAxLjFDMS40IDEuOSAwLjggNSAwLjcgNi43Yy0wLjcgNy44LTEuNCAxNy4yIDEgMjUgMS43IDMuMyAxMCAzLjEgMTQuMyAzLjIgMTIuMSAwLjMgMjQuMS0wLjMgMzYuMi0wLjMgMzAuNSAwIDU5IDAuMiA4OC41IDAuMiA1LjMgMCAxMy4zLTAuMSAxNi45LTEuNCAzLjYtMS4zIDIuMy0xNyAxLjctMjJDMTU5IDggMTU5LjMgMS4yIDE0OC4xIDAuN3oiLz48L3N2Zz4=);
+                }
+
+                .wobbly-overlay__media {
+                    z-index: 1;
+                }
+            }
+        }
+
+        .global-donation--widget--images__mobile {
+            @include min($sm, $lg) {
+                display: block;
+            }
+        }
+
+        .global-donation--widget--images__desktop {
+            @include min($sm, $lg) {
+                display: none;
+            }
+        }
+
+        .global-donation--widget--content {
+            @include min($sm, $lg) {
+                flex: 0 0 100%;
+                width: 100%;
+                min-width: 100%; //IE bug
+                max-width: 100%; //IE bug
+            }
+        }
+    }
+}
+
+//TEMP - gift aid should this be created in a separate block / component but I have added here for now as the block frequently appears alongside
+// the global donation widget and I only a few styles are required */
+
+.form__giftaid-box {
+    .form__giftaid-box__icon {
+        width: 100%;
+        height: 100%;
+
+        @media (max-width: $sm) and (orientation: landscape) {
+            float: right;
+            max-width: 2.25rem;
+        }
+    }
+
+    .footer {
+        @include center-xs(left, $sm);
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

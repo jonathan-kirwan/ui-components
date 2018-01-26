@@ -1,0 +1,356 @@
+.mcheroblock,
+.mcsinglepromoblock {
+    height: 100%;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+
+    .block-inner:not(.is-full-height) {
+        min-height: 425px;
+        height: auto;
+
+        figure {
+            max-height: 425px;
+        }
+    }
+
+    .block-inner:not(.is-full-height) .row {
+        @include min($md) {
+            min-height: 425px;
+            height: auto;
+        }
+    }
+    // Single promo module - display wobbly background
+    .mcsinglepromoblock--border {
+        &:after {
+            @include min($sm) {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-repeat: no-repeat;
+                background-image: url("/content/images/svg-backgrounds/promo_full_width.svg");
+                background-size: 100% 100%;
+            }
+        }
+    }
+
+    .is-full-height {
+        height: 100vh;
+        max-height: 768px !important; // changed to match style guide - www.mariecurie.org.uk/styleguide/brand-guidelines/main-brand/images
+        /* fix iOS bug not displaying 100vh correctly */
+        /* ipad */
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+            height: 768px;
+            max-height: 768px;
+        }
+
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+            height: 768px;
+            max-height: 768px;
+        }
+        /* iphone 5 */
+        @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2) {
+            height: 320px;
+            max-height: 320px;
+        }
+
+        @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2) {
+            height: 568px;
+            max-height: 568px;
+        }
+
+        .container {
+            @include max($sm-max) {
+                //position: absolute;
+                //bottom: 0;
+                width: 100%;
+            }
+        }
+    }
+
+    figure {
+        margin: 0;
+    }
+
+    .mcheroblock_image {
+        width: 100%;
+
+        @include min($md) {
+            position: absolute;
+        }
+
+        img {
+            border-radius: 0;
+            left: 50%;
+            margin: 0 auto;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            position: absolute;
+
+            @include min($md) {
+                top: auto;
+                -webkit-transform: translate(-50%, 0);
+                transform: translate(-50%, 0);
+            }
+        }
+    }
+
+    .mcsinglepromoblock_image {
+        width: 100%;
+
+        @include min($sm) {
+            position: absolute;
+        }
+
+        img {
+            border-radius: 0;
+
+            @include min($sm) {
+                left: 50%;
+                margin: 0 auto;
+                -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+                position: absolute;
+            }
+        }
+    }
+
+    .container {
+        position: relative;
+
+        @include max($sm-max) {
+            bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
+            position: absolute;
+            width: 100%;
+        }
+
+        @include min($md) {
+            height: 100%;
+        }
+
+        > .row {
+            height: 100%;
+            position: relative;
+        }
+    }
+
+    blockquote {
+        font-size: 1rem;
+        font-style: normal;
+        padding-top: 0.5rem;
+        margin-bottom: 0.975rem;
+        text-align: center;
+
+        @include min($md) {
+            text-align: left;
+        }
+
+        p {
+            font-weight: 600;
+
+            &:before {
+                content: open-quote;
+            }
+
+            &:after {
+                content: close-quote;
+            }
+        }
+    }
+    // Inside the quote module display the blockquote with a larger font size (h1) if no title has been created
+    .no-title {
+        blockquote {
+            font-size: 2rem;
+            font-style: italic;
+            line-height: 1.12;
+
+            @include min($md) {
+                font-size: 2.25rem;
+            }
+        }
+    }
+    // Overlay content
+    .overlay-content {
+        background: #ffcd00;
+        border-radius: 1rem;
+        padding: 1rem;
+        text-align: center;
+        width: 100%;
+        z-index: 1;
+
+        @include min($md) {
+            height: 21.25rem;
+            overflow: hidden;
+            padding: 1rem 1.5rem;
+            position: absolute;
+            text-align: left;
+            width: 21.25rem;
+
+            .module {
+                max-height: calc(20.25rem - 70px);
+            }
+        }
+
+        &.promo-alignment {
+            @include min($sm) {
+                height: 21.25rem;
+                overflow: hidden;
+                padding: 1rem 1.5rem;
+                position: absolute;
+                text-align: left;
+                width: 21.25rem;
+
+                .module {
+                    max-height: calc(20.25rem - 70px);
+                }
+            }
+        }
+        // TEMP - to be revised (make reusable)
+        .module-icon-and-link {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+
+            i {
+                border-radius: 50%;
+                font-size: 0.5rem;
+                height: 1rem;
+                line-height: 1rem;
+                margin-right: 0.4rem;
+                text-align: center;
+                width: 1rem;
+            }
+        }
+
+        .carousel {
+            padding-bottom: 2.5rem;
+
+            @include min($sm) {
+                padding-bottom: 3.5rem;
+            }
+        }
+
+        .carousel-indicators {
+            bottom: -0.625rem;
+            padding: 0;
+
+            li {
+                margin: 0 0.25rem;
+            }
+        }
+        // alignment options for blocks (CTA and quote modules) added inside of the hero block
+        &.align-left {
+            @include min($sm) {
+                left: 10%;
+            }
+
+            @include min($md) {
+                left: 0;
+            }
+
+            &.promo-alignment {
+                @include min($sm) {
+                    left: 10%;
+                }
+            }
+        }
+
+        &.align-right {
+            @include min($sm) {
+                right: 10%;
+            }
+
+            @include min($md) {
+                right: 0;
+            }
+
+            &.promo-alignment {
+                @include min($sm) {
+                    right: 10%;
+                }
+            }
+        }
+
+        &.align-middle {
+            @include min($md) {
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
+
+            &.promo-alignment {
+                @include min($sm) {
+                    top: 50%;
+                    -webkit-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+}
+
+// Extend .mcheroblock Styles and over ride for .mcsinglepromoblock use
+
+.mcsinglepromoblock {
+    @extend .mcheroblock;
+
+    .block-inner:not(.is-full-height) {
+        min-height: 330px;
+
+        @include min($sm) {
+            min-height: 360px;
+            height: auto;
+        }
+    }
+
+    .overlay-content {
+        &.promo-alignment {
+            @include max($xs-max) {
+                background: none;
+                width: 90%;
+                margin: 0 auto;
+                position: relative;
+                padding: 1rem 1.5rem 2.5rem 1.5rem;
+                margin-top: -6rem;
+            }
+
+            @include min($sm) {
+                height: auto;
+                width: 21.25rem;
+            }
+
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background-image: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%0A%3Csvg%0A%20%20%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%0A%20%20%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%0A%20%20%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%0A%20%20%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20viewBox%3D%220%200%20304%20266%22%0A%20%20%20preserveAspectRatio%3D%22none%22%0A%20%20%20id%3D%22svg2%22%0A%20%20%20version%3D%221.1%22%3E%0A%20%20%3Cdefs%0A%20%20%20%20%20id%3D%22defs4%22%20%2F%3E%0A%20%20%3Cmetadata%0A%20%20%20%20%20id%3D%22metadata7%22%3E%0A%20%20%20%20%3Crdf%3ARDF%3E%0A%20%20%20%20%20%20%3Ccc%3AWork%0A%20%20%20%20%20%20%20%20%20rdf%3Aabout%3D%22%22%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Aformat%3Eimage%2Fsvg%2Bxml%3C%2Fdc%3Aformat%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atype%0A%20%20%20%20%20%20%20%20%20%20%20rdf%3Aresource%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Fdcmitype%2FStillImage%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%3Cdc%3Atitle%3E%3C%2Fdc%3Atitle%3E%0A%20%20%20%20%20%20%3C%2Fcc%3AWork%3E%0A%20%20%20%20%3C%2Frdf%3ARDF%3E%0A%20%20%3C%2Fmetadata%3E%0A%20%20%3Cpath%0A%20%20%20%20%20style%3D%22fill%3A%23ffcd00%22%0A%20%20%20%20%20d%3D%22m%20215.29621%2C264.4709%20c%20-7.15%2C-0.45011%20-51.475%2C-1.0047%20-98.5%2C-1.23242%20C%2040.89436%2C262.87092%2030.47796%2C262.63406%2024.00724%2C261.12854%2014.46491%2C258.90835%209.00587%2C254.84266%206.47746%2C248.073%202.21782%2C236.6681%201.79551%2C230.66808%201.81086%2C181.7727%201.81886%2C156.10858%201.30801%2C127.91067%200.67549%2C119.11067%20-0.1549%2C107.55771%20-0.21335%2C90.74234%200.46519%2C58.61067%201.51441%2C8.92531%201.32837%2C10.13531%208.74469%2C4.76295%20c%203.36805%2C-2.4398%205.36432%2C-2.95587%2015.21412%2C-3.93309%2012.77641%2C-1.26758%2082.39699%2C-1.07282%20183.8374%2C0.51428%2068.68988%2C1.07469%2070.07769%2C1.19351%2079.68465%2C6.82239%205.02492%2C2.94418%207.85755%2C6.7095%2010.31787%2C13.71519%203.73535%2C10.6363%204.30502%2C20.37297%204.57701%2C78.22895%200.1448%2C30.8%200.58208%2C75.53532%200.97174%2C99.41182%200.97501%2C59.74429%200.51617%2C61.78211%20-14.5583%2C64.65688%20-8.33912%2C1.59031%20-50.22254%2C1.75645%20-73.49297%2C0.29153%20z%22%0A%20%20%20%20%20id%3D%22path4172%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                z-index: -1;
+            }
+        }
+    }
+
+    .btn {
+        font-size: 1rem;
+        margin-top: .75rem;
+        min-width: 12rem;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,242 @@
+// When cookie banner is shown add additional margin to offset position of sticky menu block
+
+@include min($md) {
+    .cookie[style*="block"] ~ .main .mcstickymenublock .navbar-fixed {
+        top: calc(50% + 80px);
+    }
+}
+
+// Change opacity to 1 when off canvas menu is not active (iphone 5/6 issue)
+
+body:not(.off-canvas-active) {
+    .navbar-fixed {
+        opacity: 1;
+    }
+}
+
+.mcstickymenublock {
+    .navbar-fixed {
+        border: none;
+        bottom: 0;
+        left: 0;
+        // Opacity set to 0 when off canvas menu is active (iphone 5/6 issue)
+        opacity: 0;
+        position: fixed;
+        -webkit-transition: all 300ms ease;
+        -o-transition: all 300ms ease;
+        transition: all 300ms ease;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        width: 100%;
+        z-index: 1000;
+
+        @include min($md) {
+            bottom: auto;
+            max-width: 25rem;
+            left: inherit;
+            right: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            width: 50%;
+            /*z-index: 2000;*/
+        }
+    }
+
+    .mciconblock__list {
+        -webkit-animation: 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s 1 wipeUp forwards;
+        animation: 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s 1 wipeUp forwards;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        margin-bottom: 0;
+        opacity: 0;
+
+        @include min($md) {
+            -webkit-animation: 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s 1 wipeIn forwards;
+            animation: 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s 1 wipeIn forwards;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-transform: translateX(100rem);
+            transform: translateX(100rem);
+        }
+    }
+
+    .mciconblock__item {
+        background: #0065bd;
+        border-right: 1px solid #2e46a0;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        margin-bottom: -1rem;
+        overflow: hidden;
+        padding: 0.6rem 0.6rem 1.6rem 0.6rem;
+        position: relative;
+        -webkit-transition: -webkit-transform 0.1s ease;
+        transition: -webkit-transform 0.1s ease;
+        transition: transform 0.1s ease;
+        transition: transform 0.1s ease, -webkit-transform 0.1s ease;
+        width: 100%;
+
+        svg {
+            height: 2rem;
+            margin-left: 0;
+            width: 2rem;
+            z-index: 10;
+
+            @include min($md) {
+                height: 3rem;
+                margin-left: 0.6rem;
+                -webkit-transition: -webkit-transform 200ms ease;
+                transition: -webkit-transform 200ms ease;
+                transition: transform 200ms ease;
+                transition: transform 200ms ease, -webkit-transform 200ms ease;
+                width: 3rem;
+            }
+        }
+
+        a {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-item-align: center;
+            -webkit-align-self: center;
+            align-self: center;
+            color: #fff;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            font-size: 1rem;
+            font-weight: 600;
+            height: 100%;
+            left: 0;
+            padding-left: 0.2rem;
+            width: 100%;
+
+            @include min($md) {
+                font-size: 1.5rem;
+                line-height: 1.35;
+                padding-left: 6rem;
+                position: absolute;
+                top: 0;
+            }
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            -webkit-transform: translateY(-1rem);
+            transform: translateY(-1rem);
+
+            > a {
+                text-decoration: none;
+            }
+        }
+
+        @include min($md) {
+            background: transparent url("data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 160 35%22 preserveAspectRatio%3D%22none%22%3E%3Cpath fill%3D%22%230065bd%22 d%3D%22M148.1 0.7C129.2 0 112.2 0.8 94 1.1c-22.5 0.3-44.2-1.5-67.7-1 0.1-0.2-13.8 0-20.3 1.1C1.4 1.9 0.8 5 0.7 6.7c-0.7 7.8-1.4 17.2 1 25 1.7 3.3 10 3.1 14.3 3.2 12.1 0.3 24.1-0.3 36.2-0.3 30.5 0 59 0.2 88.5 0.2 5.3 0 13.3-0.1 16.9-1.4 3.6-1.3 2.3-17 1.7-22C159 8 159.3 1.2 148.1 0.7z%22%2F%3E%3C%2Fsvg%3E") no-repeat left center / cover;
+            background-size: 100% 100%;
+            margin-left: 4rem;
+            padding-bottom: 0.6rem;
+
+            &:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                -webkit-transform: translateX(-2rem);
+                transform: translateX(-2rem);
+
+                svg {
+                    -webkit-transform: scale(1.3) translateX(-0.2rem);
+                    transform: scale(1.3) translateX(-0.2rem);
+                    -webkit-transform-origin: center center;
+                    transform-origin: center center;
+                }
+            }
+        }
+    }
+
+    @include min($md) {
+        width: 40%;
+        -ms-flex-item-align: end;
+        align-self: flex-end;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+    @-webkit-keyframes wipeIn {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateX(100rem);
+            transform: translateX(100rem);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes wipeIn {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateX(100rem);
+            transform: translateX(100rem);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+
+    @-webkit-keyframes wipeUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(100rem);
+            transform: translateY(100rem);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes wipeUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(100rem);
+            transform: translateY(100rem);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }

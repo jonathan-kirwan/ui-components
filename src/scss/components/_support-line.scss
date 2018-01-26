@@ -1,0 +1,291 @@
+/* information and support - layouts and states to display 'i and s' as either 
+   a) fixed menu b) banner and / or c) included in mega menu */
+
+/* note - the following styles supercede the previous helpline styles. for more information please refer to dsb-3213 */
+
+.i-and-s {
+    @include min($sm) {
+        background: #fff;
+    }
+
+    &__header {
+        cursor: pointer;
+        -webkit-transition: background .2s ease;
+        transition: background .2s ease;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        &__container {
+            padding: 0.5rem 1rem;
+
+            p {
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                font-size: 1.125rem;
+                font-weight: 700;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+                line-height: 1.35;
+            }
+
+            @include min($sm) {
+                padding: 1rem;
+            }
+
+            @include min($md) {
+                padding: 1rem 0;
+            }
+        }
+
+        &:hover {
+            background: #00559e;
+        }
+    }
+
+    &__container {
+        padding: 1rem;
+    }
+
+    &__section {
+        padding: 1rem 1rem 0;
+        text-align: center;
+        -webkit-transition: opacity .3s ease .1s, -webkit-transform .4s ease-out;
+        transition: opacity .3s ease .1s, -webkit-transform .4s ease-out;
+        transition: transform .4s ease-out, opacity .3s ease .1s;
+        transition: transform .4s ease-out, opacity .3s ease .1s, -webkit-transform .4s ease-out;
+
+        @include min($sm) {
+            text-align: left;
+        }
+
+        @include min($md) {
+            padding: 1rem 2rem 0 0;
+        }
+    }
+
+    p {
+        margin-bottom: .5rem;
+    }
+    /* show button style on smaller screens only (need to find a more reusable way) */
+    &__btn_mobile-only {
+        line-height: 1;
+
+        @include max($lg) {
+            border-radius: 0.75rem;
+            color: #fff;
+            background: #0065bd;
+            display: inline-block;
+            font-size: 1.3125rem;
+            padding: 0.625rem 1.5rem;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            white-space: nowrap;
+        }
+        /* status messages - closed */
+        &--closed {
+            background: transparent;
+            color: #7a99ac;
+        }
+    }
+    /* status messages */
+    &__alert {
+        border-radius: 0.75rem;
+        display: inline-block;
+        /* status messages - open */
+        &--open {
+            background: $green;
+        }
+        /* status messages - closed */
+        &--closed {
+            background: #ffdfb4;
+        }
+    }
+    /* layouts */
+    /* layout change - make the i and section sticky */
+    &--is-fixed {
+        background: #ebf0f3;
+        bottom: 0;
+        -webkit-box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+        position: fixed;
+        -webkit-transition: opacity .4s ease, -webkit-transform .1s ease-out;
+        transition: opacity .4s ease, -webkit-transform .1s ease-out;
+        transition: transform .1s ease-out, opacity .4s ease;
+        transition: transform .1s ease-out, opacity .4s ease, -webkit-transform .1s ease-out;
+        width: 100%;
+        z-index: 2000;
+    }
+
+    &--is-fixed &__container {
+        padding: 0 0 1rem;
+    }
+    /* layout change - set margins when the i and section is not sticky */
+    &--is-banner &__section {
+        margin-bottom: 1rem;
+
+        @include min($sm) {
+            margin-bottom: 0;
+        }
+    }
+
+    &--is-mega-menu {
+        padding: .5rem 1.75rem;
+
+        @include min($md) {
+            padding: 0;
+        }
+    }
+    /* states */
+    &--is-displayed &__section {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    &--is-displayed &__circle-up {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+    /* i and s is displayed / collapsed icon */
+    &__circle-up {
+        -webkit-transition: -webkit-transform .2s ease;
+        transition: -webkit-transform .2s ease;
+        transition: transform .2s ease;
+        transition: transform .2s ease, -webkit-transform .2s ease;
+    }
+
+    &--is-collapsed &__section {
+        -webkit-transform: translateY(1rem);
+        transform: translateY(1rem);
+        opacity: 0.2;
+    }
+    /* online chat available / unavailable icon */
+    &__circle {
+        &--open {
+            border-radius: 50%;
+            color: $green;
+            -webkit-box-shadow: 0 0 0 rgba(120, 190, 32, 0.4);
+            box-shadow: 0 0 0 rgba(120, 190, 32, 0.4);
+            -webkit-animation: pulse 1s infinite;
+            animation: pulse 1s infinite;
+        }
+
+        &--unavailable {
+            color: $orange;
+        }
+
+        &--closed {
+            color: $red;
+        }
+    }
+    /* animations */
+    /* animation to pulse 'is-available' icon when displayed */
+    @-webkit-keyframes pulse {
+        0% {
+            -webkit-box-shadow: 0 0 0 rgba(120, 190, 32, 0.6);
+            box-shadow: 0 0 0 rgba(120, 190, 32, 0.6);
+        }
+
+        70% {
+            -webkit-box-shadow: 0 0 0 16px rgba(204,169,44, 0);
+            box-shadow: 0 0 0 16px rgba(204,169,44, 0);
+        }
+
+        100% {
+            -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+            box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            -webkit-box-shadow: 0 0 0 rgba(120, 190, 32, 0.6);
+            box-shadow: 0 0 0 rgba(120, 190, 32, 0.6);
+        }
+
+        70% {
+            -webkit-box-shadow: 0 0 0 16px rgba(204,169,44, 0);
+            box-shadow: 0 0 0 16px rgba(204,169,44, 0);
+        }
+
+        100% {
+            -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+            box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+        }
+    }
+}
+
+/* to be added in to utilities scss once we upgrade to bs4 */
+
+/* margins */
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-2 {
+    margin-bottom: .5rem !important;
+}
+
+.mb-1 {
+    margin-bottom: .25rem !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+/* padding */
+
+.p-4 {
+    padding: 1rem;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+/* borders */
+
+.border-0 {
+    border: none;
+}
+
+/* opacity */
+
+.o-0 {
+    opacity: 0;
+}
+
+/* alternate h1-h6 */
+.display-1 {
+    font-size: 1.5rem;
+    -webkit-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+
+    &:hover {
+        color: #00559e;
+        text-decoration: none;
+    }
+
+    @include min($lg) {
+        font-size: 2rem;
+    }
+}
+
+.display-6 {
+    font-size: 1.125rem;
+}
